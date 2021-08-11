@@ -163,8 +163,13 @@ p {
     /* seciton을 클래스화해서 각 섹션에 공통적으로 적용함 */
     padding: 50px;
     text-align: center;
-    max-width: 1200px; /* 보통 1200px이 데스크탑에서 편하게 볼 수 있는 너비 */
     margin: auto; /* 오른쪽에 마진이 생겨 가운데 정렬이 안되서 적용함 */
+}
+
+.section__container {
+    /* 모든 섹션에 적용하는 것이 아니라 원하는 섹션에만 적용할 수 있도록 따로 뺌 */
+    max-width: 1200px; /* 보통 1200px이 데스크탑에서 편하게 볼 수 있는 너비 */
+    margin: auto;
 }
 
 /* About */
@@ -230,4 +235,59 @@ p {
 
 .job__period {
     font-size: var(--font-micro);
+}
+
+/* Skill */
+#skills {
+    background-color: var(--color-yellow);
+}
+
+.skillset {
+    display: flex;
+    background-color: var(--color-light-grey);
+    color: var(--color-light-white);
+    margin: 20px 0;
+}
+
+.skillset__title {
+    color: var(--color-white);
+}
+
+.skillset__left {
+    flex-basis: 60%;
+    background-color: var(--color-dark-grey);
+    padding: 20px 40px;
+}
+
+.skill {
+    margin-bottom: 32px;
+}
+
+.skill__description {
+    display: flex;
+    justify-content: space-between;
+}
+
+.skill__bar {
+    width: 100%;
+    height: 3px;
+    background-color: var(--color-grey);
+}
+
+.skill__value {
+    height: 3px;
+    background-color: var(--color-orange);
+}
+
+.skillset__right {
+    flex-basis: 40%;
+}
+
+.tools {
+    background-color: var(--color-grey);
+}
+
+.tools,
+.etc {
+    padding: 20px;
 }
