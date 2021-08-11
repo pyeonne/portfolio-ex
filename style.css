@@ -28,6 +28,9 @@
 
     /* Size */
     --size-border-radius: 4px;
+
+    /* Animation */
+    --animaition-duration: 300ms;
 }
 
 /* Universal tags */
@@ -153,4 +156,78 @@ p {
     padding: 8px 12px;
     border: 2px solid var(--color-white);
     border-radius: var(--size-border-radius);
+}
+
+/* Section common */
+.section {
+    /* seciton을 클래스화해서 각 섹션에 공통적으로 적용함 */
+    padding: 50px;
+    text-align: center;
+    max-width: 1200px; /* 보통 1200px이 데스크탑에서 편하게 볼 수 있는 너비 */
+    margin: auto; /* 오른쪽에 마진이 생겨 가운데 정렬이 안되서 적용함 */
+}
+
+/* About */
+.about__majors {
+    display: flex;
+    justify-content: space-between;
+    margin: 80px 0;
+}
+
+.major__icon {
+    width: 170px;
+    height: 170px;
+    line-height: 170px;
+    font-size: 70px;
+    margin: auto;
+    color: var(--color-blue);
+    border: 1px solid var(--color-blue);
+    border-radius: 50%;
+    margin-bottom: 16px;
+}
+
+.major__icon i {
+    /* 
+    300ms은 사용자가 느끼기엔 뭔가 재밌는 애니메이션이지만 
+    답답하지 않을 정도의 조금 표준화된 좋은 수치임.
+    250~350ms가 적합한 수치이며, 1s는 약간 답답함.
+    */
+    transition: all var(--animaition-duration) ease;
+}
+
+.major__icon:hover i {
+    color: var(--color-pink);
+    transform: rotate(-30deg) scale(1.1);
+}
+
+.major__title,
+.major__description {
+    color: var(--color-dark-grey);
+}
+
+.major__description {
+    font-size: var(--font-small);
+}
+
+.job {
+    display: flex;
+    align-items: center;
+}
+
+.job__description {
+    margin: 0 16px;
+    text-align: left;
+}
+
+.job__name,
+.job__period {
+    color: var(--color-light-grey);
+}
+
+.job__name {
+    font-size: var(--font-small);
+}
+
+.job__period {
+    font-size: var(--font-micro);
 }
