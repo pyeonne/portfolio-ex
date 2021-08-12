@@ -46,8 +46,32 @@ document.addEventListener('scroll', () => {
     }
 });
 
+// Handle click on the "arrow up" button
 arrowUp.addEventListener('click', () => {
     scrollIntoView('#home');
+});
+
+// Projects
+const workBtnContainer = document.querySelector('.work__categories');
+const projectContainer = document.querySelector('.work__projects');
+const projects = document.querySelectorAll('.project'); // project들을 배열로 받아 옴
+workBtnContainer.addEventListener('click', event => {
+    const filter = event.target.dataset.filter || event.target.parentNode.dataset.filter;
+    if (filter == null) {
+        // 혹시 모르니 filter가 null이면 아무것도 일어나지 않게 함
+        return;
+    }
+    projectContainer.classList.add('animation-out');
+    setTimeout(() => {
+        projects.forEach(project => {
+            if (filter === '*' || filter === project.dataset.type) {
+                project.classList.remove('invisible'); // 클릭한 filter와 project의 type이 일치하면 보여줘야하니까 invisible 제거
+            } else {
+                project.classList.add('invisible');
+            }
+        });
+        projectContainer.classList.remove('animation-out');
+    }, 300);
 });
 
 function scrollIntoView(selector) {
