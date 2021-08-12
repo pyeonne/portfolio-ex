@@ -97,12 +97,20 @@ p {
 
 /* Navbar */
 #navbar {
+    position: fixed;
+    width: 100%; /* 부모 요소 밖으로 나왔기 때문에 너비를 다시 지정해줌 */
     display: flex;
     justify-content: space-between;
-    background-color: var(--color-pink);
+    background-color: transparent;
     align-items: center;
     color: var(--color-white);
     padding: 16px;
+    transition: all var(--animaition-duration) ease-in-out;
+}
+
+#navbar.navbar--dark {
+    background-color: var(--color-pink);
+    padding: 8px;
 }
 
 .navbar__menu {
@@ -142,6 +150,7 @@ p {
 #home {
     background: center/cover no-repeat url('images/home-background.png');
     padding: 40px;
+    padding-top: 140px; /* fixed인 navbar 사이에 여백을 줌 */
     text-align: center;
 }
 
