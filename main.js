@@ -61,6 +61,13 @@ workBtnContainer.addEventListener('click', event => {
         // 혹시 모르니 filter가 null이면 아무것도 일어나지 않게 함
         return;
     }
+
+    // Remove selection from the previous item and select new one
+    const active = document.querySelector('.category__btn.selected');
+    active.classList.remove('selected');
+    const target = event.target.nodeName === 'BUTTON' ? event.target : event.target.parentNode;
+    target.classList.add('selected');
+
     projectContainer.classList.add('animation-out');
     setTimeout(() => {
         projects.forEach(project => {

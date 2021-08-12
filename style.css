@@ -127,14 +127,12 @@ p {
     padding: 8px 12px;
     margin: 0 4px;
     cursor: pointer;
+    border: 1px solid transparent;
     border-radius: var(--size-border-radius); /* item.active와 item:hover에 반복해서 작성할 필요는 없겠죠? */
 }
 
-.navbar__menu__item.active {
-    border: 1px solid var(--color-white);
-}
-
 .navbar__menu__item:hover {
+    border: 1px solid var(--color-white);
     background-color: var(--color-dark-pink);
 }
 
@@ -323,10 +321,16 @@ p {
     padding: 8px 48px;
 }
 
-.category__btn.active,
+.category__btn.selected,
 .category__btn:hover {
     background-color: var(--color-pink);
     color: var(--color-white);
+}
+
+.category__btn.selected .category__count,
+.category__btn:hover .category__count {
+    opacity: 1;
+    top: 0;
 }
 
 .category__count {
@@ -349,12 +353,6 @@ p {
 
     opacity: 0; /* 평소에는 보이지 않도록 적용함 */
     transition: all var(--animaition-duration) ease-in;
-}
-
-.category__btn.active .category__count,
-.category__btn:hover .category__count {
-    opacity: 1;
-    top: 0;
 }
 
 .work__projects {
