@@ -21,7 +21,6 @@ navbarMenu.addEventListener('click', event => {
     }
     navbarMenu.classList.remove('open'); /* 클릭해서 이동하면 항상 메뉴가 보이지 않도록 */
     scrollIntoView(link);
-    selectNavItem(target);
 });
 
 // Navbar toggle button for small screen
@@ -89,11 +88,6 @@ workBtnContainer.addEventListener('click', event => {
     }, 300);
 });
 
-function scrollIntoView(selector) {
-    const scrollTo = document.querySelector(selector);
-    scrollTo.scrollIntoView({ behavior: 'smooth' });
-}
-
 // 1. 모든 섹션 요소들과 메뉴 아이템들을 가지고 온다
 // 2. IntersectionObserver를 이용해서 모든 섹션들을 관찰한다
 // 3. 보여지는 섹션에 해당하는 메뉴 아이템을 활성화시킨다.
@@ -108,6 +102,12 @@ function selectNavItem(selected) {
     selectedNavItem.classList.remove('active');
     selectedNavItem = selected;
     selectedNavItem.classList.add('active');
+}
+
+function scrollIntoView(selector) {
+    const scrollTo = document.querySelector(selector);
+    scrollTo.scrollIntoView({ behavior: 'smooth' });
+    selectNavItem(navItems[sectionIds.indexOf(selector)]);
 }
 
 const observerOptions = {
