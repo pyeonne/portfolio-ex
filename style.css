@@ -175,6 +175,10 @@ p {
     border-radius: var(--size-border-radius);
 }
 
+.home__contact:hover {
+    background-color: var(--color-orange);
+}
+
 /* Section common */
 .section {
     /* seciton을 클래스화해서 각 섹션에 공통적으로 적용함 */
@@ -315,6 +319,7 @@ p {
 }
 
 .category__btn {
+    position: relative;
     border: 1px solid var(--color-dark-white);
     border-radius: var(--size-border-radius);
     font-size: var(--font-regular);
@@ -336,10 +341,9 @@ p {
 .category__count {
     display: inline-block; /* 동그라미가 길쭉하게 보여서 적용함 */
 
-    position: relative;
-
+    position: absolute;
     top: -20px;
-    left: 4px;
+    right: 16px;
 
     width: 24px;
     height: 24px;
@@ -519,8 +523,19 @@ p {
 
 /* For below 768px screen width */
 @media screen and (max-width: 768px) {
+    :root {
+        /* Font size */
+        --font-large: 30px;
+        --font-medium: 18px;
+        --font-regular: 16px;
+        --font-small: 14px;
+        --font-micro: 12px;
+    }
     .navbar__toggle-btn {
         display: block;
+        top: 16px;
+        right: 16px;
+        font-size: var(--font-medium);
     }
 
     #navbar {
@@ -545,24 +560,59 @@ p {
         display: block;
     }
 
+    .section {
+        padding: 16px;
+        padding-top: 40px;
+    }
+
     .about__majors {
         flex-direction: column;
+        margin-top: 30px;
+        margin-bottom: 0;
     }
 
     .major {
-        margin-bottom: 38px;
+        margin-bottom: 30px;
     }
 
     .skillset {
         flex-direction: column;
     }
 
+    .category__btn {
+        margin: 4px 0;
+        width: 80%; /* 버튼의 크기를 일정하게 */
+    }
+
     .project {
         flex-grow: 1; /* 빈 여백을 채워주며 리사이즈됨 */
     }
 
+    .testimonial {
+        flex-direction: column;
+    }
+
     .testimonial__avatar {
-        width: 80px;
-        height: 80px;
+        width: 120px;
+        height: 120px;
+    }
+
+    .testimonial__avatar:nth-child(even),
+    .testimonial__avatar:nth-child(odd) {
+        margin: 0;
+        margin-bottom: 8px;
+    }
+
+    .testimonial__speech-bubble {
+        order: 1;
+    }
+
+    .arrow-up {
+        right: 16px;
+        bottom: 16px;
+        width: 50px;
+        height: 50px;
+        font-size: 30px;
+        line-height: 50px;
     }
 }
