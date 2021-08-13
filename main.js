@@ -19,7 +19,14 @@ navbarMenu.addEventListener('click', event => {
     if (link == null) {
         return;
     }
+    navbarMenu.classList.remove('open'); /* 클릭해서 이동하면 항상 메뉴가 보이지 않도록 */
     scrollIntoView(link);
+});
+
+// Navbar toggle button for small screen
+const navbarToggleBtn = document.querySelector('.navbar__toggle-btn');
+navbarToggleBtn.addEventListener('click', () => {
+    navbarMenu.classList.toggle('open');
 });
 
 // Handle click on "contact me" button on home
