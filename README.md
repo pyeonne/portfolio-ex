@@ -1,2 +1,2 @@
 # portfolio-clone
- Ellie's Portfolio site Clone Coding
+ Ellie's portfolio site clone coding
